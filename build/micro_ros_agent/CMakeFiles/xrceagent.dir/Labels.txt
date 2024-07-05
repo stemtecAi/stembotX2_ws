@@ -1,0 +1,13 @@
+# Target labels
+ xrceagent
+# Source files and their labels
+/home/sunildj/stembotX2_ws/build/micro_ros_agent/CMakeFiles/xrceagent
+/home/sunildj/stembotX2_ws/build/micro_ros_agent/CMakeFiles/xrceagent.rule
+/home/sunildj/stembotX2_ws/build/micro_ros_agent/CMakeFiles/xrceagent-complete.rule
+/home/sunildj/stembotX2_ws/build/micro_ros_agent/agent/src/xrceagent-stamp/xrceagent-build.rule
+/home/sunildj/stembotX2_ws/build/micro_ros_agent/agent/src/xrceagent-stamp/xrceagent-configure.rule
+/home/sunildj/stembotX2_ws/build/micro_ros_agent/agent/src/xrceagent-stamp/xrceagent-download.rule
+/home/sunildj/stembotX2_ws/build/micro_ros_agent/agent/src/xrceagent-stamp/xrceagent-install.rule
+/home/sunildj/stembotX2_ws/build/micro_ros_agent/agent/src/xrceagent-stamp/xrceagent-mkdir.rule
+/home/sunildj/stembotX2_ws/build/micro_ros_agent/agent/src/xrceagent-stamp/xrceagent-patch.rule
+/home/sunildj/stembotX2_ws/build/micro_ros_agent/agent/src/xrceagent-stamp/xrceagent-update.rule
