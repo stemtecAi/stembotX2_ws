@@ -16,6 +16,7 @@ install(DIRECTORY
   meshes
   urdf
   rviz
+  worlds
   DESTINATION share/${PROJECT_NAME}
 )
 if(BUILD_TESTING)
