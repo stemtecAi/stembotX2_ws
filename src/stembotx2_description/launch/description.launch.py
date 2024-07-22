@@ -36,7 +36,7 @@ def generate_launch_description():
         executable='rviz2',
         name='rviz2',
         output='screen',
-        arguments=['-d', os.path.join(stembotx2_description_dir, 'rviz', 'desp.rviz')],
+        arguments=['-d', os.path.join(stembotx2_description_dir, 'rviz', 'view_urdf.rviz')],
     )
 
     return LaunchDescription([
