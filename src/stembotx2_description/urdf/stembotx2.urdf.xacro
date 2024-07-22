@@ -1,0 +1,327 @@
+<?xml version="1.0" ?>
+<robot name="Test" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find stembotx2_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find stembotx2_description)/urdf/stembotx2.trans" />
+<xacro:include filename="$(find stembotx2_description)/urdf/stembotx2.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-1.7776082490155195e-08 0.0001322306206547696 0.12348052689329111" rpy="0 0 0"/>
+    <mass value="113.06787878589044"/>
+    <inertia ixx="1.066814" iyy="1.034936" izz="1.274348" ixy="-0.0" iyz="-0.001682" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Agv_left_wheel_link_1">
+  <inertial>
+    <origin xyz="0.009999999999999995 3.552713678800501e-17 9.71445146547012e-17" rpy="0 0 0"/>
+    <mass value="0.6042068071016569"/>
+    <inertia ixx="0.00037" iyy="0.000205" izz="0.000205" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.081 -0.0 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/Agv_left_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.081 -0.0 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/Agv_left_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Agv_right_wheel_link_1">
+  <inertial>
+    <origin xyz="-0.009999999999999967 -1.1302989323306157e-16 -6.938893903907228e-18" rpy="0 0 0"/>
+    <mass value="0.6042068071016568"/>
+    <inertia ixx="0.00037" iyy="0.000205" izz="0.000205" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.082 -0.0 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/Agv_right_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.082 -0.0 -0.035" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/Agv_right_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Agv_back_castor_wheel_link_1">
+  <inertial>
+    <origin xyz="-5.018998114294321e-13 0.0 -0.021799999999999986" rpy="0 0 0"/>
+    <mass value="0.02104448198884657"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.135 -0.031" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/Agv_back_castor_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.135 -0.031" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/Agv_back_castor_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Agv_front_castor_wheel_link_1">
+  <inertial>
+    <origin xyz="-5.018998114294321e-13 2.7755575615628914e-17 -0.021799999999999986" rpy="0 0 0"/>
+    <mass value="0.02104448198884657"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.135 -0.031" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/Agv_front_castor_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.135 -0.031" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/Agv_front_castor_wheel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Agv_scan_link_1">
+  <inertial>
+    <origin xyz="3.6187644375762656e-18 1.3877787807814457e-17 0.010000000000000009" rpy="0 0 0"/>
+    <mass value="0.3082687791334986"/>
+    <inertia ixx="5.8e-05" iyy="5.8e-05" izz="9.6e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0485 -0.246" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/Agv_scan_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0485 -0.246" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/Agv_scan_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="agv_tof1_1">
+  <inertial>
+    <origin xyz="-1.3463482236436564e-06 -3.752646745708299e-06 0.0010000000000000009" rpy="0 0 0"/>
+    <mass value="0.0001258791185545458"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.057783 0.1395 -0.181" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/agv_tof1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.057783 0.1395 -0.181" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/agv_tof1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="agv_tof5_1">
+  <inertial>
+    <origin xyz="1.3463482236436564e-06 -3.7526467457360546e-06 0.0010000000000000009" rpy="0 0 0"/>
+    <mass value="0.00012587911855454543"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.057783 0.1395 -0.181" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/agv_tof5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.057783 0.1395 -0.181" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/agv_tof5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="agv_tof6_1">
+  <inertial>
+    <origin xyz="-4.7737763238242525e-06 1.4967252291981122e-11 0.0010000000000000286" rpy="0 0 0"/>
+    <mass value="0.00012587911949657815"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.150993 -0.0 -0.181" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/agv_tof6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.150993 -0.0 -0.181" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/agv_tof6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="agv_tof4_1">
+  <inertial>
+    <origin xyz="-1.3463482236436564e-06 3.752646745708299e-06 0.0010000000000000286" rpy="0 0 0"/>
+    <mass value="0.00012587911855454584"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.057783 -0.1395 -0.181" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/agv_tof4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.057783 -0.1395 -0.181" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/agv_tof4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="agv_tof3_1">
+  <inertial>
+    <origin xyz="1.3463482236436564e-06 3.752646745708299e-06 0.0010000000000000009" rpy="0 0 0"/>
+    <mass value="0.00012587911855454543"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.057783 -0.1395 -0.181" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/agv_tof3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.057783 -0.1395 -0.181" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/agv_tof3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="agv_tof2_1">
+  <inertial>
+    <origin xyz="4.773776323796497e-06 1.4967246071641936e-11 0.0010000000000000009" rpy="0 0 0"/>
+    <mass value="0.00012587911949657888"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.150993 -0.0 -0.181" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/agv_tof2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.150993 -0.0 -0.181" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stembotx2_description)/meshes/agv_tof2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 6" type="continuous">
+  <origin xyz="0.081 0.0 0.035" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Agv_left_wheel_link_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Revolute 7" type="continuous">
+  <origin xyz="-0.082 0.0 0.035" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Agv_right_wheel_link_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Rigid 8" type="fixed">
+  <origin xyz="0.0 0.135 0.031" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Agv_back_castor_wheel_link_1"/>
+</joint>
+
+<joint name="Rigid 9" type="fixed">
+  <origin xyz="0.0 -0.135 0.031" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Agv_front_castor_wheel_link_1"/>
+</joint>
+
+<joint name="Rigid 10" type="fixed">
+  <origin xyz="0.0 0.0485 0.246" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Agv_scan_link_1"/>
+</joint>
+
+<joint name="Rigid 11" type="fixed">
+  <origin xyz="-0.057783 -0.1395 0.181" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="agv_tof1_1"/>
+</joint>
+
+<joint name="Rigid 12" type="fixed">
+  <origin xyz="0.057783 -0.1395 0.181" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="agv_tof5_1"/>
+</joint>
+
+<joint name="Rigid 13" type="fixed">
+  <origin xyz="-0.150993 0.0 0.181" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="agv_tof6_1"/>
+</joint>
+
+<joint name="Rigid 14" type="fixed">
+  <origin xyz="-0.057783 0.1395 0.181" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="agv_tof4_1"/>
+</joint>
+
+<joint name="Rigid 15" type="fixed">
+  <origin xyz="0.057783 0.1395 0.181" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="agv_tof3_1"/>
+</joint>
+
+<joint name="Rigid 16" type="fixed">
+  <origin xyz="0.150993 0.0 0.181" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="agv_tof2_1"/>
+</joint>
+
+</robot>
