@@ -13,7 +13,7 @@ def generate_launch_description():
     stembotx2_description_dir = get_package_share_directory("stembotx2_description")
 
     model_arg = DeclareLaunchArgument(name="model", default_value=os.path.join(
-                                        stembotx2_description_dir, "urdf", "stembotx2.urdf.xacro"
+                                        stembotx2_description_dir, "urdf", "stembotx2.xacro.urdf"
                                         ),
                                       description="Absolute path to robot urdf file")
 

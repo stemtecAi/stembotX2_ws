@@ -3,9 +3,7 @@
 
 <xacro:property name="body_color" value="Gazebo/Silver" />
 
-<gazebo>
-  <plugin name="control" filename="libgazebo_ros_control.so"/>
-</gazebo>
+
 <gazebo reference="base_link">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
@@ -89,6 +87,268 @@
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="Agv_scan_link_1">
+  <sensor type="gpu_ray" name="rp_c1_lidar">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>10</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <resolution>1</resolution>
+          <min_angle>-3.14159</min_angle>
+          <max_angle>3.14159</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.10</min>
+        <max>12.0</max>
+        <resolution>0.01</resolution>
+      </range>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.01</stddev>
+      </noise>
+    </ray>
+    <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_ray_sensor.so">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>~/out:=scan</remapping>
+      </ros>
+      <output_type>sensor_msgs/LaserScan</output_type>
+      <frame_name>Agv_scan_link_1</frame_name>
+    </plugin>
+  </sensor>
+</gazebo>
+
+
+<link name="imu_link"/>
+    
+    <joint name="imu_to_base_link" type="fixed">
+      <parent link="base_link"/>
+      <child link="imu_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <gazebo reference="imu_link">
+      <gravity>true</gravity>
+      <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>20</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+          <ros>
+            <remapping>~/out:=imu/data</remapping>
+          </ros>
+          <topicName>imu/data</topicName>
+          <bodyName>imu_link</bodyName>
+          <updateRateHZ>10.0</updateRateHZ>
+          <gaussianNoise>0.0</gaussianNoise>
+          <xyzOffset>0 0 0</xyzOffset>
+          <rpyOffset>0 0 0</rpyOffset>
+          <frameName>imu_link</frameName>
+          <initialOrientationAsReference>true</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+      </sensor>
+    </gazebo>
+
+    <gazebo reference="agv_tof1_1">
+  <sensor type="ray" name="tof1">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>10</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>1</samples>
+          <resolution>1</resolution>
+          <min_angle>0</min_angle>
+          <max_angle>0</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.01</min>
+        <max>2.0</max>
+        <resolution>0.01</resolution>
+      </range>
+    </ray>
+    <plugin name="tof1_controller" filename="libgazebo_ros_ray_sensor.so">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>~/out:=tof1</remapping>
+      </ros>
+      <output_type>sensor_msgs/Range</output_type>
+      <radiation_type>infrared</radiation_type>
+      <frame_name>agv_tof1_1</frame_name>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="agv_tof2_1">
+  <sensor type="ray" name="tof2">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>10</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>1</samples>
+          <resolution>1</resolution>
+          <min_angle>0</min_angle>
+          <max_angle>0</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.01</min>
+        <max>2.0</max>
+        <resolution>0.01</resolution>
+      </range>
+    </ray>
+    <plugin name="tof2_controller" filename="libgazebo_ros_ray_sensor.so">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>~/out:=tof2</remapping>
+      </ros>
+      <output_type>sensor_msgs/Range</output_type>
+      <radiation_type>infrared</radiation_type>
+      <frame_name>agv_tof2_1</frame_name>
+    </plugin>
+  </sensor>
+
+</gazebo>
+
+<gazebo reference="agv_tof3_1">
+  <sensor type="ray" name="tof3">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>10</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>1</samples>
+          <resolution>1</resolution>
+          <min_angle>0</min_angle>
+          <max_angle>0</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.01</min>
+        <max>2.0</max>
+        <resolution>0.01</resolution>
+      </range>
+    </ray>
+    <plugin name="tof3_controller" filename="libgazebo_ros_ray_sensor.so">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>~/out:=tof3</remapping>
+      </ros>
+      <output_type>sensor_msgs/Range</output_type>
+      <radiation_type>infrared</radiation_type>
+      <frame_name>agv_tof3_1</frame_name>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="agv_tof4_1">
+  <sensor type="ray" name="tof4">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>10</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>1</samples>
+          <resolution>1</resolution>
+          <min_angle>0</min_angle>
+          <max_angle>0</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.01</min>
+        <max>2.0</max>
+        <resolution>0.01</resolution>
+      </range>
+    </ray>
+    <plugin name="tof4_controller" filename="libgazebo_ros_ray_sensor.so">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>~/out:=tof4</remapping>
+      </ros>
+      <output_type>sensor_msgs/Range</output_type>
+      <radiation_type>infrared</radiation_type>
+      <frame_name>agv_tof4_1</frame_name>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="agv_tof5_1">
+  <sensor type="ray" name="tof5">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>10</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>1</samples>
+          <resolution>1</resolution>
+          <min_angle>0</min_angle>
+          <max_angle>0</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.01</min>
+        <max>2.0</max>
+        <resolution>0.01</resolution>
+      </range>
+    </ray>
+    <plugin name="tof5_controller" filename="libgazebo_ros_ray_sensor.so">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>~/out:=tof5</remapping>
+      </ros>
+      <output_type>sensor_msgs/Range</output_type>
+      <radiation_type>infrared</radiation_type>
+      <frame_name>agv_tof5_1</frame_name>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="agv_tof6_1">
+  <sensor type="ray" name="tof6">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>true</visualize>
+    <update_rate>10</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>1</samples>
+          <resolution>1</resolution>
+          <min_angle>0</min_angle>
+          <max_angle>0</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.01</min>
+        <max>2.0</max>
+        <resolution>0.01</resolution>
+      </range>
+    </ray>
+    <plugin name="tof6_controller" filename="libgazebo_ros_ray_sensor.so">
+      <ros>
+        <namespace>/</namespace>
+        <remapping>~/out:=tof6</remapping>
+      </ros>
+      <output_type>sensor_msgs/Range</output_type>
+      <radiation_type>infrared</radiation_type>
+      <frame_name>agv_tof6_1</frame_name>
+    </plugin>
+  </sensor>
 </gazebo>
 
 </robot>
